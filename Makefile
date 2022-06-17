@@ -5,7 +5,7 @@ TAG ?= dev
 TARGET ?= crpe
 ENTRYPOINT ?=./packages/$(TARGET)/bin
 
-PLATFORMS ?= linux/arm64
+PLATFORMS ?= linux/x86_64
 
 up:
 	PORT=6060 \

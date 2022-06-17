@@ -15,7 +15,7 @@ dependencies:
   freezed_annotation: ^1.1.0
   flutter_markdown: ^0.6.8
   flutter_bloc: ^8.0.0
-  hydrated_bloc: ^8.0.0
+  hydrated_bloc: ^9.0.0-dev.2
   path_provider: ^2.0.7
   expandable: ^5.0.1
   flutter_services_binding: ^0.1.0

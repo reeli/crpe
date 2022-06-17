@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'package:crpeapp/common/flutter.dart';
 import 'package:crpeapp/common/system.dart';
 import 'package:crpeapp/common/upgrader.dart';
@@ -7,15 +8,25 @@ import 'package:crpeapp/theme.dart';
 import 'package:crpeapp/view/cluster.dart';
 
 void main() async {
-  FlutterServicesBinding.ensureInitialized();
+  // FlutterServicesBinding.ensureInitialized();
 
-  var s = await HydratedStorage.build(
-    storageDirectory: await getApplicationSupportDirectory(),
-  );
+  // var s = await HydratedStorage.build(
+  //   storageDirectory: await getApplicationSupportDirectory(),
+  // );
 
   HydratedBlocOverrides.runZoned(
     () => runApp(const App()),
-    storage: s,
+    createStorage: () async {
+      WidgetsFlutterBinding.ensureInitialized();
+
+      // var d = kIsWeb
+      //     ? HydratedStorage.webStorageDirectory
+      //     : await getTemporaryDirectory();
+
+      return HydratedStorage.build(
+        storageDirectory: await getApplicationSupportDirectory(),
+      );
+    },
   );
 }
 
